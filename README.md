@@ -38,7 +38,11 @@ class MyGame extends Component {
   render() {
     return (
       <div className="MyGame">
-        <Presenter game={game}/>
+        <Presenter
+          game={game}
+          aspectRatio={16/9}
+          maxResolution={{x: 1280, y: 720}}
+        />
       </div>
     );
   }

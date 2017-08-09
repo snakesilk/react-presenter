@@ -13,7 +13,7 @@ The component will facilitate the following behaviors:
 Screenshot showing active overlay.
 
 
-## Usage
+## Quickstart.
 
 * Install.
 ```bash
@@ -50,3 +50,24 @@ class MyGame extends Component {
 
 export default MyGame;
 ```
+
+## Props
+
+### `game` *Game*
+Instance of a Snakesilk Game object and is the game instance to attach to.
+
+### `aspectRatio` *Number*
+The aspect ratio given as a decimal number to render the game canvas in. Typical aspect ratios written like 4:3, 16:9 are fully synonymous with 4/3, 16/9 etc. Defaults to 16/9.
+
+### `maxResolution` *Object*
+Maximum resolution to draw game canvas for when the canvas becomes bigger than what performance allows to render. Given as an object with the following shape where each number is number of pixels.
+```js
+{
+  x: 1280,
+  y: 720,
+}
+```
+Defaults to 1280x720 pixels.
+
+### `fillWindow` *Bool*
+Flag determining if the game render area fills the browser window by default or is contained in its parent element. Defaults to **false**.

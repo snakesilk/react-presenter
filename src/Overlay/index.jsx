@@ -72,7 +72,13 @@ class Overlay extends Component {
         ref={node => (this.node = node)}
       >
         <div className="control">
-          <section className="actions" style={{ textAlign: "center" }}>
+          <section
+            className="actions"
+            style={{
+              pointerEvents: isPaused ? "initial" : "none",
+              textAlign: "center",
+            }}
+          >
             <Button onClick={this.resume} icon={PlayIcon}>
               Resume
             </Button>

@@ -28,7 +28,7 @@ class Button extends Component {
   render() {
     return (
       <button style={style} onClick={this.props.onClick}>
-        <img src={this.props.icon} style={iconStyle} />
+        <this.props.icon style={iconStyle} />
         {this.props.children}
       </button>
     );

@@ -21,7 +21,7 @@ const iconStyle = {
 class Button extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
     onClick: PropTypes.func.isRequired,
   };
 

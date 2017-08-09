@@ -29,10 +29,12 @@ class Overlay extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("blur", this.pause);
     this.node.addEventListener("mousemove", this.sluggishPause);
   }
 
   componentWillUnmount() {
+    window.removeEventListener("blur", this.pause);
     this.node.removeEventListener("mousemove", this.sluggishPause);
   }
 

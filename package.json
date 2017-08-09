@@ -8,6 +8,9 @@
     "build": "babel ./src/ --out-dir ./dist"
   },
   "main": "dist/index.js",
+  "dependencies": {
+    "react-full-screen": "^0.0.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",

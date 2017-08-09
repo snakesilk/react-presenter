@@ -27,7 +27,7 @@ class Video extends Component {
   }
 
   componentDidMount() {
-    this.node.appendChild(this.props.game.renderer.domElement);
+    this.props.game.attachToElement(this.node);
     this.updateScreen();
 
     window.addEventListener("resize", this.updateScreen);
@@ -41,8 +41,8 @@ class Video extends Component {
     const { game, maxResolution, aspectRatio } = this.props;
 
     const bounds = {
-      height: this.node.clientHeight,
-      width: this.node.clientWidth,
+      height: this.node.parentNode.clientHeight,
+      width: this.node.parentNode.clientWidth,
     };
 
     const size = {
@@ -56,17 +56,21 @@ class Video extends Component {
       size.w = bounds.width;
     }
 
+    Object.assign(this.node.style, {
+      height: size.h + "px",
+      width: size.w + "px",
+    });
+
+    game.adjustAspectRatio();
     game.setResolution(
       Math.min(maxResolution.x, size.w),
       Math.min(maxResolution.y, size.h)
     );
 
     Object.assign(game.renderer.domElement.style, {
-      height: size.h + "px",
-      width: size.w + "px",
+      height: "100%",
+      width: "100%",
     });
-
-    game.adjustAspectRatio();
   }
 
   render() {
@@ -80,10 +84,14 @@ class Video extends Component {
           height: "100%",
           width: "100%",
         }}
-        ref={node => {
-          this.node = node;
-        }}
-      />
+      >
+        <div
+          className="screen"
+          ref={node => {
+            this.node = node;
+          }}
+        />
+      </div>
     );
   }
 }

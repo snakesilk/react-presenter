@@ -8,6 +8,11 @@ The component will facilitate the following behaviors:
 * Provide pause and resume game state with an overlay.
 * Provide and handle full screen toggle.
 
+
+<img src="http://i.imgur.com/yHwNbqw.png" width="500" alt="Overlay active">
+Screenshot showing active overlay.
+
+
 ## Usage
 
 * Install.

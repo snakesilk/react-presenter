@@ -9,6 +9,7 @@ class SnakesilkPresenter extends Component {
     aspectRatio: PropTypes.any,
     fillWindow: PropTypes.bool.isRequired,
     maxResolution: PropTypes.any,
+    videoOverlay: PropTypes.node,
   };
 
   static defaultProps = {
@@ -35,7 +36,7 @@ class SnakesilkPresenter extends Component {
 
     return (
       <div
-        className="snakesilk-screen"
+        className="snakesilk-presenter"
         style={{
           height: "100%",
           position: fillWindow ? "absolute" : "relative",
@@ -47,12 +48,17 @@ class SnakesilkPresenter extends Component {
             game={game}
             isFullScreen={isFullScreen}
             onFullScreenChange={this.toggleFullScreen}
-          />
+          >
+            {this.props.children}
+          </Overlay>
+
           <Video
             aspectRatio={aspectRatio}
             maxResolution={maxResolution}
             game={game}
-          />
+          >
+            {this.props.videoOverlay}
+          </Video>
         </FullScreen>
       </div>
     );

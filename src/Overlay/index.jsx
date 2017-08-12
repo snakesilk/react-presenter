@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Game, Mouse } from "@snakesilk/engine";
+import { Game } from "@snakesilk/engine";
+import desensitizeMousemove from "desensitize-mousemove";
+
 import Button from "./Button";
+
 
 import PlayIcon from "./image/play.svg";
 import FullScreenIcon from "./image/fullscreen.svg";
@@ -25,7 +28,7 @@ class Overlay extends Component {
 
     this.pause = this.pause.bind(this);
     this.resume = this.resume.bind(this);
-    this.sluggishPause = Mouse.sluggish(this.pause, 20);
+    this.sluggishPause = desensitizeMousemove(this.pause, 300);
   }
 
   componentDidMount() {
@@ -70,10 +73,11 @@ class Overlay extends Component {
           position: "absolute",
           transition: "opacity 0.3s",
           width: "100%",
+          zIndex: 2,
         }}
         ref={node => (this.node = node)}
       >
-        <div className="control">
+        <div className="game-control">
           <section
             className="actions"
             style={{
@@ -100,6 +104,8 @@ class Overlay extends Component {
                 </Button>}
           </section>
         </div>
+
+        {this.props.children}
       </div>
     );
   }

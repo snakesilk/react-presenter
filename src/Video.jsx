@@ -4,12 +4,12 @@ import { Game } from "@snakesilk/engine";
 
 class Video extends Component {
   static propTypes = {
-    game: PropTypes.instanceOf(Game),
+    aspectRatio: PropTypes.number.isRequired,
     maxResolution: PropTypes.shape({
       x: PropTypes.number.isRequired,
       y: PropTypes.number.isRequired,
     }),
-    aspectRatio: PropTypes.number.isRequired,
+    game: PropTypes.instanceOf(Game),
   };
 
   static defaultProps = {
@@ -82,6 +82,7 @@ class Video extends Component {
           display: "flex",
           justifyContent: "center",
           height: "100%",
+          overflow: "hidden",
           width: "100%",
         }}
       >
@@ -91,6 +92,14 @@ class Video extends Component {
             this.node = node;
           }}
         />
+
+        <div className="overlay" style={{
+          height: "100%",
+          position: "absolute",
+          width: "100%",
+        }}>
+          {this.props.children}
+        </div>
       </div>
     );
   }

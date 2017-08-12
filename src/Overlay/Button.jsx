@@ -21,14 +21,14 @@ const iconStyle = {
 class Button extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    icon: PropTypes.node.isRequired,
+    icon: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
   };
 
   render() {
     return (
       <button style={style} onClick={this.props.onClick}>
-        <this.props.icon style={iconStyle} />
+        {React.createElement(this.props.icon, {style: iconStyle})}
         {this.props.children}
       </button>
     );

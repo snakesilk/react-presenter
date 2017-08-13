@@ -2,7 +2,7 @@
   "name": "@snakesilk/react-presenter",
   "description": "A React component suitable for bundling games with React created using Snakesilk.",
   "license": "ISC",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "autoformat": "prettier --trailing-comma es5 --write './src/**/*.{js,jsx}'",
     "build": "babel ./src/ --out-dir ./dist"

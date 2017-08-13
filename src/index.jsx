@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import FullScreen from "react-fullscreen";
+import FullScreen from "react-full-screen";
 import Overlay from "./Overlay";
 import Video from "./Video";
 

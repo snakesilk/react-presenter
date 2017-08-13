@@ -42,8 +42,7 @@ class Overlay extends Component {
   }
 
   pause() {
-    this.props.game.pause();
-    this.setState({ isPaused: true });
+    this.setState({ isPaused: true }, () => this.props.game.pause());
   }
 
   resume() {
@@ -52,8 +51,7 @@ class Overlay extends Component {
       this.node.removeEventListener("mousemove", this.sluggishPause);
       this.node.addEventListener("mousemove", this.sluggishPause);
     }, 1000);
-    this.props.game.resume();
-    this.setState({ isPaused: false });
+    this.setState({ isPaused: false }, () => this.props.game.resume());
   }
 
   render() {

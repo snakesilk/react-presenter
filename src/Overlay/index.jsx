@@ -5,10 +5,12 @@ import desensitizeMousemove from "desensitize-mousemove";
 
 import Button from "./Button";
 
-
 import PlayIcon from "./image/play.svg";
 import FullScreenIcon from "./image/fullscreen.svg";
 import DeFullScreenIcon from "./image/defullscreen.svg";
+
+const RESUME_GRACEPERIOD = 500;
+const PAUSE_SENSITIVITY = 300;
 
 class Overlay extends Component {
   static propTypes = {
@@ -28,7 +30,7 @@ class Overlay extends Component {
 
     this.pause = this.pause.bind(this);
     this.resume = this.resume.bind(this);
-    this.sluggishPause = desensitizeMousemove(this.pause, 300);
+    this.sluggishPause = desensitizeMousemove(this.pause, PAUSE_SENSITIVITY);
   }
 
   componentDidMount() {
@@ -42,6 +44,7 @@ class Overlay extends Component {
   }
 
   pause() {
+    this.node.removeEventListener("mousemove", this.sluggishPause);
     this.setState({ isPaused: true }, () => this.props.game.pause());
   }
 
@@ -50,7 +53,7 @@ class Overlay extends Component {
     this.timer = setTimeout(() => {
       this.node.removeEventListener("mousemove", this.sluggishPause);
       this.node.addEventListener("mousemove", this.sluggishPause);
-    }, 1000);
+    }, RESUME_GRACEPERIOD);
     this.setState({ isPaused: false }, () => this.props.game.resume());
   }
 

@@ -7,13 +7,9 @@ import Video from "./Video";
 class SnakesilkPresenter extends Component {
   static propTypes = {
     aspectRatio: PropTypes.any,
-    fillWindow: PropTypes.bool.isRequired,
+    fillWindow: PropTypes.bool,
     maxResolution: PropTypes.any,
     videoOverlay: PropTypes.node,
-  };
-
-  static defaultProps = {
-    fill: true,
   };
 
   constructor(props) {

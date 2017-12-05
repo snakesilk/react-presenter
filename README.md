@@ -58,7 +58,7 @@ Instance of a Snakesilk Game object and is the game instance to attach to.
 
 ```jsx
 const game = new SnakesilkEngine.Game();
-<Presenter 
+<Presenter
   game={game}
 />
 ```
@@ -67,7 +67,7 @@ const game = new SnakesilkEngine.Game();
 The aspect ratio given as a decimal number to render the game canvas in. Typical aspect ratios written like 4:3, 16:9 are fully synonymous with 4/3, 16/9 etc. Defaults to 16/9.
 
 ```jsx
-<Presenter 
+<Presenter
   aspectRatio={16/9}
 />
 ```
@@ -83,8 +83,7 @@ Maximum resolution to draw game canvas for when the canvas becomes bigger than w
 Defaults to 1280x720 pixels.
 
 ```jsx
-const game = new SnakesilkEngine.Game();
-<Presenter 
+<Presenter
   maxResolution={{x: 640, y: 480}}
 />
 ```
@@ -93,6 +92,5 @@ const game = new SnakesilkEngine.Game();
 Flag determining if the game render area fills the browser window by default or is contained in its parent element. Defaults to **false**.
 
 ```jsx
-const game = new SnakesilkEngine.Game();
 <Presenter fillWindow />
 ```

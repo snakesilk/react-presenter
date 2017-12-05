@@ -63,7 +63,7 @@ class Overlay extends Component {
 
     return (
       <div
-        className="Overlay"
+        className="overlay"
         style={{
           background: "rgba(0, 0, 0, 0.75)",
           display: "flex",

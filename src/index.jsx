@@ -36,7 +36,7 @@ class SnakesilkPresenter extends Component {
 
     return (
       <div
-        className="SnakesilkPresenter"
+        className="snakesilk-presenter"
         style={{
           height: "100%",
           position: fillWindow ? "absolute" : "relative",

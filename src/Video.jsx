@@ -76,7 +76,7 @@ class Video extends Component {
   render() {
     return (
       <div
-        className="Video"
+        className="video"
         style={{
           alignItems: "center",
           display: "flex",
